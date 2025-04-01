@@ -38,7 +38,8 @@ pip install -r requirements.txt
 Start the application:
 
 ```
-python main.py
+cd PyNote
+python src/main.py
 ```
 
 ## 🤝 Contributing
