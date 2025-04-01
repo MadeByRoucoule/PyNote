@@ -30,14 +30,14 @@ cd PyNote
 
 ## 📦 Install the required dependencies:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ## ▶️ Usage
 Start the application:
 
-```
+```bash
 cd PyNote
 python src/main.py
 ```
