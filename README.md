@@ -10,9 +10,6 @@
 [![Stars](https://img.shields.io/github/stars/MadeByRoucoule/PyNote?style=social&label=Stars)](https://github.com/MadeByRoucoule/PyNote)
 </div>
 
-![screenshot](https://github.com/MadeByRoucoule/PyNote/src/assets/img/screenshot_home_page.png)
-![screenshot](https://github.com/MadeByRoucoule/PyNote/src/assets/img/screenshot_login_page.png)
-
 > [!IMPORTANT]
 > **🚀 Project in development!**
 
