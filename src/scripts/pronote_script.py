@@ -24,6 +24,7 @@ class PronoteScript:
             self.settings_script.reset_account()
 
         self.client_notes = None
+        self.client.info.profile_picture.save('src/assets/img/profile_picture.png')
         self.save_pronote_json()
 
     def save_pronote_json(self):
