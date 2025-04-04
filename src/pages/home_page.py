@@ -15,7 +15,7 @@ class HomePage(CTkFrame):
         self.settings_script = settings_script
 
         self.master.title("Home Page")
-        self.master.geometry("800x500")
+        self.master.geometry("850x500")
 
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
@@ -111,7 +111,8 @@ class HomePage(CTkFrame):
 
         self.dashboard_tab_frame = CTkFrame(self, fg_color="transparent")
         self.dashboard_tab_frame.grid(row=0, column=1, padx=(0,10), pady=10, sticky="nsew")
-        self.dashboard_tab_frame.grid_columnconfigure(1, weight=1)
+        self.dashboard_tab_frame.grid_columnconfigure(0, weight=1)
+        self.dashboard_tab_frame.grid_columnconfigure(1, weight=2)
         self.dashboard_tab_frame.grid_rowconfigure(0, weight=0)
         self.dashboard_tab_frame.grid_rowconfigure(1, weight=2)
         self.dashboard_tab_frame.grid_rowconfigure(2, weight=1)
@@ -119,7 +120,6 @@ class HomePage(CTkFrame):
         self.average_frame = CTkFrame(self.dashboard_tab_frame, corner_radius=6)
         self.average_frame.grid(row=0, column=0, padx=(0,10), pady=(0, 10), sticky="nsew")
         self.average_frame.grid_columnconfigure(0, weight=1)
-        self.average_frame.grid_rowconfigure(1, weight=1)        
 
         notes = 0
         coefs = 0
@@ -162,7 +162,7 @@ class HomePage(CTkFrame):
         self.lasts_notes_frame = CTkFrame(self.dashboard_tab_frame, corner_radius=6)
         self.lasts_notes_frame.grid(row=1, column=0, rowspan=2, padx=(0,10), sticky="nsew")
         self.lasts_notes_frame.grid_columnconfigure(0, weight=1)
-        self.lasts_notes_frame.grid_rowconfigure(1, weight=1)        
+        self.lasts_notes_frame.grid_rowconfigure(1, weight=1) 
 
         self.lasts_notes_label = CTkLabel(self.lasts_notes_frame, text="Lasts notes", font=("Arial", 14), anchor="w")
         self.lasts_notes_label.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
@@ -194,11 +194,10 @@ class HomePage(CTkFrame):
                 fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"])
             )
             note_frame.pack(fill="x", pady=(0,10))
-            note_frame.grid_propagate(False)
             note_frame.grid_columnconfigure(0, weight=1)
             note_frame.grid_rowconfigure(0, weight=1)
 
-            subject_label = CTkLabel(note_frame, text=note['subject'], font=("Arial", 12), anchor="w")
+            subject_label = CTkLabel(note_frame, text=note['subject'].split("<")[0].split(">")[0].strip(), font=("Arial", 12), anchor="w")
             subject_label.grid(row=0, column=0, padx=10, sticky="ew")
 
             date_label = CTkLabel(note_frame, text=note['date'], font=("Arial", 12), anchor="w")
@@ -227,7 +226,7 @@ class HomePage(CTkFrame):
         self.lasts_notes_list.grid_columnconfigure(0, weight=1)  
 
         self.radar_chart_frame = CTkFrame(self.dashboard_tab_frame, corner_radius=6)
-        self.radar_chart_frame.grid(row=0, column=1, rowspan=2, padx=(0,10), sticky="nsew")
+        self.radar_chart_frame.grid(row=0, column=1, rowspan=2, sticky="nsew")
         self.radar_chart_frame.grid_columnconfigure(0, weight=1)
         self.radar_chart_frame.grid_rowconfigure(0, weight=1)
 
@@ -257,7 +256,7 @@ class HomePage(CTkFrame):
         self.radar_chart.add_data("A", values, color="#03CB5D", fill=True)
 
         self.average_per_subject_frame = CTkFrame(self.dashboard_tab_frame, corner_radius=6)
-        self.average_per_subject_frame.grid(row=2, column=1, padx=(0,10), pady=(10,0), sticky="nsew")
+        self.average_per_subject_frame.grid(row=2, column=1, pady=(10,0), sticky="nsew")
         self.average_per_subject_frame.grid_columnconfigure(0, weight=1)
         self.average_per_subject_frame.grid_rowconfigure(1, weight=1)
 
@@ -277,7 +276,7 @@ class HomePage(CTkFrame):
             subject_frame.grid_columnconfigure(0, weight=1)
             subject_frame.grid_rowconfigure(0, weight=1)
 
-            subject_label = CTkLabel(subject_frame, text=labels[i], font=("Arial", 12), anchor="w")
+            subject_label = CTkLabel(subject_frame, text=labels[i].split("<")[0].split(">")[0].strip(), font=("Arial", 12), anchor="w")
             subject_label.grid(row=0, column=0, padx=10, sticky="ew")
 
             value_color = None
@@ -359,6 +358,7 @@ class HomePage(CTkFrame):
         self.note_period_label.grid(row=3, column=0, sticky='ew', padx=20, pady=(0,10))
 
         self.notes_period_option_menu_callback(self.period_option_menu.get())
+
         self.notes_graph_frame.bind("<Configure>", lambda event: self.update_graph())
 
     def notes_period_option_menu_callback(self, value):
@@ -413,6 +413,8 @@ class HomePage(CTkFrame):
                 value_label.grid(row=0, column=0, padx=(0, 10), sticky="ew")
                 value_color_frame = CTkFrame(value_frame, height=12, width=12,fg_color=value_color, corner_radius=6)
                 value_color_frame.grid(row=0, column=1, sticky="ew")
+
+                self.notes_listbox_callback(f"{self.pronote_client["periods"][self.periods_list.index(self.period_option_menu.get())]["grades"][i]["subject"]} : {self.pronote_client["periods"][self.periods_list.index(self.period_option_menu.get())]["grades"][i]["grade"]} / {self.pronote_client["periods"][self.periods_list.index(self.period_option_menu.get())]["grades"][i]["out_of"]} | ({round(self.pronote_client["periods"][self.periods_list.index(self.period_option_menu.get())]["grades"][i]["value"], 2)})")
 
                 note_frame.bind("<Enter>", lambda event, note_frame=note_frame: note_frame.configure(fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["border_color"])))
                 note_frame.bind("<Leave>", lambda event, note_frame=note_frame: note_frame.configure(fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"])))
