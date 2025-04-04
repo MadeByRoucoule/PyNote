@@ -9,7 +9,8 @@
 [![Commits](https://img.shields.io/github/commit-activity/t/MadeByRoucoule/PyNote?style=flat)](https://github.com/MadeByRoucoule/PyNote/commits/main/)
 [![Stars](https://img.shields.io/github/stars/MadeByRoucoule/PyNote?style=social&label=Stars)](https://github.com/MadeByRoucoule/PyNote)
 
-<img src="src/assets/img/screenshot_home_page.png" height="300px"> <img src="src/assets/img/screenshot_login_page.png" height="300px">
+<img src="src/assets/img/screenshot_home_page.png" height="300px"> <img src="src/assets/img/screenshot_notes_page.png" height="300px">
+<img src="src/assets/img/screenshot_login_page.png" height="300px">
 
 </div>
 
