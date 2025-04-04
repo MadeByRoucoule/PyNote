@@ -6,6 +6,10 @@ class App(CTk):
     def __init__(self):
         super().__init__()
         self.iconbitmap("src/assets/img/logo.ico")
+        
+        set_appearance_mode("system")
+        set_default_color_theme("src/assets/json/themes/green.json")
+        
         self.settings_script = SettingsScript()
 
         if not self.settings_script.settings["pronote_account"]["username"] or \

@@ -16,9 +16,6 @@ class LoginPage(CTkFrame):
         self.master.title("Login Page")
         self.master.geometry("439x452")
 
-        set_appearance_mode("system")
-        set_default_color_theme("src/assets/json/themes/green.json")
-
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
 

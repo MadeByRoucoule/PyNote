@@ -18,9 +18,6 @@ class HomePage(CTkFrame):
         self.master.title("Home Page")
         self.master.geometry("800x500")
 
-        set_appearance_mode("system")
-        set_default_color_theme("src/assets/json/themes/green.json")
-
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         
