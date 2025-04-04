@@ -1,5 +1,4 @@
 from customtkinter import *
-from CTkListbox import *
 import tkchart as tkc
 import datetime
 from PIL import Image, ImageDraw
@@ -51,6 +50,7 @@ class HomePage(CTkFrame):
                                               text="Dashboard", 
                                               fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"]), 
                                               hover_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["border_color"]),
+                                              text_color=["black", "white"],
                                               command=self.show_dashboard_tab)
         self.dashboard_tab_button.grid(row=1, column=0, pady=(10, 0), sticky="ew")
 
@@ -58,10 +58,11 @@ class HomePage(CTkFrame):
                                           text="Notes", 
                                           fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"]),
                                           hover_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["border_color"]),
+                                          text_color=["black", "white"],
                                           command=self.show_notes_tab)
         self.notes_tab_button.grid(row=2, column=0, pady=(10, 0), sticky="ew")
 
-        self.incomming_tab_button = CTkButton(self.tabs_frame, text="In comming...", fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"]),hover_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["border_color"]))
+        self.incomming_tab_button = CTkButton(self.tabs_frame, text="In comming...", fg_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["top_fg_color"]),hover_color=self._apply_appearance_mode(ThemeManager.theme["CTkFrame"]["border_color"]), text_color=["black", "white"])
         self.incomming_tab_button.grid(row=3, column=0, pady=10, sticky="ew")
 
         separator = CTkFrame(self.left_frame, height=2)

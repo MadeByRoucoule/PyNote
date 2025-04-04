@@ -1,5 +1,4 @@
 customtkinter
-CTkListbox
 pronotepy
 tkchart
 pillow
