@@ -5,5 +5,28 @@
         "pronote_link": "",
         "ent_choice": "",
         "remember": 0
+    },
+    "general": {
+        "language": {
+            "Fran\u00e7ais": 1,
+            "English": 0
+        }
+    },
+    "appearance": {
+        "theme": {
+            "System": 1,
+            "Dark": 0,
+            "Light": 0
+        },
+        "color": {
+            "Green": 1,
+            "Blue": 0
+        },
+        "font_family": {
+            "Default": 0,
+            "Serif": 0,
+            "Sans_serif": 0,
+            "Roboto": 1
+        }
     }
 }

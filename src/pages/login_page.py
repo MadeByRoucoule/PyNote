@@ -58,9 +58,6 @@ class LoginPage(CTkFrame):
         self.login_button.grid(row=2, column=0, sticky="ew", padx=10, pady=10)
 
     def login(self):
-        
-        print(self.master.winfo_width(), self.master.winfo_height())
-        print(self.login_frame.winfo_width(), self.login_frame.winfo_height())
 
         username = self.username_entry.get()
         password = self.password_entry.get()

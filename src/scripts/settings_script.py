@@ -16,6 +16,25 @@ class SettingsScript:
         except json.JSONDecodeError as e:
             print(f"Erreur lors du chargement du JSON: {e}")
 
+    def get_setting_value(self, key):
+        keys = key.split(".")
+        ref = self.settings
+        for k in keys:
+            ref = ref.get(k)
+            if ref is None:
+                return None
+        
+        if isinstance(ref, dict):
+            if set(ref.keys()) == {"state", "from", "to"}:
+                return ref["state"]
+            else:
+                for option, value in ref.items():
+                    if value == 1:
+                        return option
+                return list(ref.keys())[0] if ref else None
+        else:
+            return ref        
+
     def save_settings(self):
         with open(self.settings_path, "w", encoding="utf-8") as f:
             json.dump(self.settings, f, indent=4)
