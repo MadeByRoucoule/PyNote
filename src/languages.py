@@ -1,8 +1,8 @@
 import json
 
 class LanguagesScript:
-    def __init__(self):
-        self.languages_path = "src/assets/json/languages.json"
+    def __init__(self, languages_path: str):
+        self.languages_path = languages_path
         self.languages = self.load_languages()
 
     def load_languages(self):

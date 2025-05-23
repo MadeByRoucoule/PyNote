@@ -2,8 +2,8 @@ import json
 import os
 
 class SettingsScript:
-    def __init__(self):
-        self.settings_path = "src/assets/json/settings.json"
+    def __init__(self, settings_path: str):
+        self.settings_path = settings_path
         self.settings = self.load_settings()
 
     def load_settings(self):
@@ -33,7 +33,7 @@ class SettingsScript:
                         return option
                 return list(ref.keys())[0] if ref else None
         else:
-            return ref        
+            return ref
 
     def save_settings(self):
         with open(self.settings_path, "w", encoding="utf-8") as f:
