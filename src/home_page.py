@@ -697,7 +697,7 @@ class HomePage(CTkFrame):
         )        
         self.account_info_school_label.grid(row=3, column=0, sticky="ew", padx=20, pady=(0,10))
 
-        self.account_img_rect = Image.open("src/assets/img/profile_picture.png")
+        self.account_img_rect = Image.open(profile_picture_file_path)
         picture_size = self.account_img_rect.size
         height = 100
         self.account_picture_rect = CTkImage(light_image=self.account_img_rect, dark_image=self.account_img_rect, size=(picture_size[0]*height/picture_size[1], height))
