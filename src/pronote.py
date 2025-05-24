@@ -2,7 +2,7 @@ import pronotepy.ent
 import pronotepy
 import json
 
-from paths import profile_picture_file_path
+from paths import profile_picture_file_path, pronote_data_file_path
 
 class PronoteScript:
     def __init__(self, username, password, pronote_link, ent_choice, settings_script):
@@ -137,5 +137,5 @@ class PronoteScript:
 
         self.client_notes = data
 
-        with open('src/assets/json/pronote_data.json', 'w') as file:
+        with open(pronote_data_file_path, 'w') as file:
             json.dump(data, file, indent=4)
