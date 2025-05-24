@@ -2,6 +2,8 @@ import pronotepy.ent
 import pronotepy
 import json
 
+from paths import profile_picture_file_path
+
 class PronoteScript:
     def __init__(self, username, password, pronote_link, ent_choice, settings_script):
         self.username = username
@@ -24,7 +26,7 @@ class PronoteScript:
             self.settings_script.reset_account()
 
         self.client_notes = None
-        self.client.info.profile_picture.save('src/assets/img/profile_picture.png')
+        self.client.info.profile_picture.save(profile_picture_file_path)
         self.save_pronote_json()
 
     def save_pronote_json(self):
@@ -137,4 +139,3 @@ class PronoteScript:
 
         with open('src/assets/json/pronote_data.json', 'w') as file:
             json.dump(data, file, indent=4)
-

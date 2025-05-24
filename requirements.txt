@@ -1,4 +1,0 @@
-customtkinter
-pronotepy
-tkchart
-pillow

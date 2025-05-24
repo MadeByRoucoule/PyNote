@@ -2,6 +2,8 @@ from customtkinter import *
 import pronotepy.ent
 from PIL import Image
 
+from paths import app_icon_file_path
+
 class LoginPage(CTkFrame):
     def __init__(self, master, settings_script, on_login_success, *args, **kwargs):
         self.on_login_success = on_login_success
@@ -28,7 +30,7 @@ class LoginPage(CTkFrame):
         self.label_frame.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
         self.label_frame.grid_columnconfigure(0, weight=1)
 
-        self.logo_image = CTkImage(Image.open("src/assets/img/logo.ico").resize((40, 40)), size=(40, 40))
+        self.logo_image = CTkImage(Image.open(app_icon_file_path).resize((40, 40)), size=(40, 40))
         self.logo_label = CTkLabel(self.label_frame, text="", image=self.logo_image, anchor="center")
         self.logo_label.grid(row=0, column=0, sticky="ew", pady=(5, 15))
 

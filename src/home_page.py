@@ -4,6 +4,7 @@ import datetime
 from PIL import Image, ImageDraw
 
 from assets.widgets import CTkRadarChart
+from paths import *
 
 class HomePage(CTkFrame):
     def __init__(self, master, pronote_script, settings_script, languages_script, restart_app, *args, **kwargs):
@@ -33,9 +34,9 @@ class HomePage(CTkFrame):
         self.account_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
         self.account_frame.grid_columnconfigure(0, weight=1)
 
-        self.create_circular_image("src/assets/img/profile_picture.png", "src/assets/img/round_profile_picture.png")
+        self.create_circular_image(profile_picture_file_path, round_profile_picture_file_path)
 
-        self.account_img = Image.open("src/assets/img/round_profile_picture.png")
+        self.account_img = Image.open(round_profile_picture_file_path)
         self.account_picture = CTkImage(light_image=self.account_img, dark_image=self.account_img, size=(28, 28))
         self.account_name_label = CTkLabel(
             self.account_frame,
@@ -696,7 +697,7 @@ class HomePage(CTkFrame):
         )        
         self.account_info_school_label.grid(row=3, column=0, sticky="ew", padx=20, pady=(0,10))
 
-        self.account_img_rect = Image.open("src/assets/img/profile_picture.png")
+        self.account_img_rect = Image.open(profile_picture_file_path)
         picture_size = self.account_img_rect.size
         height = 100
         self.account_picture_rect = CTkImage(light_image=self.account_img_rect, dark_image=self.account_img_rect, size=(picture_size[0]*height/picture_size[1], height))
